@@ -24,6 +24,111 @@ class TemperaturaController extends Controller
         return view('auth.search',compact('temperaturas','texto'));
     }
 
+    public function consultaDia()
+    {
+        $temperatura = DB::select("SET lc_time_names = 'es_MX'");
+        $temperatura = DB::select("SELECT * 
+        FROM site1.temperatura 
+        WHERE recorder between now() 
+        - INTERVAL 24 HOUR AND now()");
+        
+        $datos = array();
+        $datos['name'] = 'Temperatura';
+        $datos['data'] = [];
+
+        $horas = array();
+        $horas = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos['data'],$value->value);
+            $objHora = date_create($value->recorder);
+            $dataHora = date_format($objHora,'D:H');
+            array_push($horas,$dataHora);
+        }
+        $datosGraficas = array($datos,$horas);
+        return json_encode($datosGraficas);
+    }
+
+    public function consultaSemana()
+    {
+
+        $temperatura = DB::select("SET lc_time_names = 'es_MX'"); 
+        $temperatura = $temperatura = DB::select("SELECT 
+            dayname(recorder) as 'recorder',
+            round(avg(value)) as 'value'
+            FROM site1.temperatura 
+            WHERE month(recorder) 
+            group by day(recorder)");
+        $datos2 = array();
+        $datos2['name'] = 'Temperatura';
+        $datos2['data'] = [];
+
+        $fecha = array();
+        $fecha = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos2['data'],$value->value);
+
+            array_push($fecha,$value->recorder);
+        }
+        $datosGraficas2 = array($datos2,$fecha);
+        return json_encode($datosGraficas2);
+    }
+ 
+    public function consultaMes(Request $request)
+    {
+        $temperatura = DB::select("SET lc_time_names = 'es_MX'");
+        $temperatura = $temperatura = DB::select("SELECT 
+            monthname(recorder) as 'recorder',
+            round(value) as 'value'
+            FROM site1.temperatura 
+            WHERE month(recorder) = '05'
+            group by month(recorder)");
+        $datos3 = array();
+        $datos3['name'] = 'Temperatura';
+        $datos3['data'] = [];
+
+        $mes = array();
+        $mes = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos3['data'],$value->value);
+            array_push($mes,$value->recorder);
+        }
+        $datosGraficas3 = array($datos3,$mes);
+        return json_encode($datosGraficas3);
+    }
+
+
+    public function consultaYear()
+    {
+        $temperatura = DB::select("SET lc_time_names = 'es_MX'");
+        $temperatura = $temperatura = DB::select("SELECT 
+            monthname(recorder) as 'recorder',
+            round(avg(value)) as 'value'
+            FROM site1.temperatura 
+            WHERE year(recorder) = '2021'
+            group by month(recorder)");
+        $datos4 = array();
+        $datos4['name'] = 'Temperatura';
+        $datos4['data'] = [];
+
+        $mes = array();
+        $mes = [];
+
+        foreach ($temperatura as $value) {
+            array_push($datos4['data'],$value->value);
+            array_push($mes,$value->recorder);
+        }
+        $datosGraficas3 = array($datos4,$mes);
+        return json_encode($datosGraficas3);
+    }
+
+    public function consultaCirculo1()
+    {
+        $valor = 50;
+        return $valor;
+    }
     /**
      * Show the form for creating a new resource.
      *
