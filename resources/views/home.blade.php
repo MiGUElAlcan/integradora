@@ -117,6 +117,7 @@
               <button id="btnMes" class="bg-graficas">mes</button>
               <button id="btnAnio" class="bg-graficas">año</button>
             </div>
+          </div>
 
                    <!--  GRAFICAS -->
             <div class="content-grafic">
@@ -557,8 +558,8 @@
         </script>
 
 
-<!--     <script src="{{ asset('js/apiClima.js')}}"></script>
-
+  <script src="{{ asset('js/apiClima.js')}}"></script>
+<!--
     <script src="{{ asset('js/chart.min.js')}}"></script>
 
     <script src="{{ asset('js/grafica.js')}}"></script>
