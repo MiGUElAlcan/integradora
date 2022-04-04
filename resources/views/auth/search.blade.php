@@ -82,7 +82,7 @@
                         @foreach ($temperaturas as $temperatura )
                         <tr>
                             <td>{{$temperatura->value}} °C</td>
-                            <td>{{$temperatura->recorded}}</td>
+                            <td>{{$temperatura->recorder}}</td>
                         </tr>
                         @endforeach
                         @endif

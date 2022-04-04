@@ -18,8 +18,8 @@ class TemperaturaController extends Controller
     {
         $texto = trim($request->get('texto'));
         $temperaturas=DB::table('temperatura')
-                        ->select('num','message','sensor_num','value','recorded')
-                        ->where('recorded', 'LIKE','%'.$texto.'%')
+                        ->select('num','message','sensor_num','value','recorder')
+                        ->where('recorder', 'LIKE','%'.$texto.'%')
                         ->paginate(10);
         return view('auth.search',compact('temperaturas','texto'));
     }
