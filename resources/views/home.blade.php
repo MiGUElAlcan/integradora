@@ -106,7 +106,6 @@
             <div class="content-1">
               <button id="btn-grafica"  class="active">Gráfica</button>
               <button id="btn-barra">Barras</button>
-              <button id="btn-tabla">Tabla</button>
 
 
             </div>
@@ -121,29 +120,28 @@
 
                    <!--  GRAFICAS -->
             <div class="content-grafic">
-                              <!-- Grafica lineas Horas -->
-                              <div id="graficHrs" style="width: 100%;"></div>
+                <!-- Grafica lineas Horas -->
+                <div id="graficHrs" width="100%" height="100%"></div>
                 
                 <!-- Grafica lineas Semana -->
-                <div id="graficSem" style="width: 100%;"></div>
+                <div id="graficSem" style="display: none;" width="100%" height="100%" ></div>
 
                 <!-- Grafica lineas Mes -->
-                <div id="graficMes" style="width: 100%;"></div>
+                <div id="graficMes" style="display: none;" width="100%" height="100%" ></div>
 
                 <!-- Grafica lineas Anio --> 
-                <div id="graficYear" style="width: 100%;"></div>
-
+                <div id="graficYear" style="display: none;" width="100%" height="100%" ></div>
 
                 <!-- Grafica barras Horas -->
-                <div id="barHoras" style="width: 100%;"></div>
+                <div id="barHoras" style="display: none;" width="100%" height="100%"></div>
 
                 <!-- Grafica  barras Semana -->
-                <div id="barSem" style="width: 100%;"></div>
+                <div id="barSem" style="display: none;" width="100%" height="100%" ></div>
 
                 <!-- Grafica barras Mes--> 
-                <div id="barMes" style="width: 100%;"></div>
+                <div id="barMes" style="display: none;" width="100%" height="100%"></div>
                 <!-- Grafica barras Anio -->
-                <div id="barYear" style="width: 100%;" ></div>
+                <div id="barYear" style="display: none;" width="100%" height="100%"></div>
             </div>
 
 
@@ -153,7 +151,6 @@
 
         <section class="notif">
           <div class="title-and-closed">
-
             <img class="img-closed" src="img/close.png" alt="">
           </div>
 
@@ -559,12 +556,14 @@
 
 
   <script src="{{ asset('js/apiClima.js')}}"></script>
+
+  <script src="{{ asset('js/main.js') }}"></script>
 <!--
     <script src="{{ asset('js/chart.min.js')}}"></script>
 
     <script src="{{ asset('js/grafica.js')}}"></script>
 
-    <script src="{{ asset('js/main.js') }}"></script>
+    
 
     <script src="{{ asset('js/tabla.js')}}"></script> -->
 
