@@ -1,0 +1,135 @@
+:root{
+    --negro:#434343;
+    --azul1:#00C6FB;
+    --azul2:#0090F3;
+    --blanco:#fff;
+    --border: 1px solid rgba(67, 67, 67, 0.445);
+    --negro: #29323C;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 16px;
+    max-width: 1440px;
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--blanco);
+}
+
+/* ----------------HEADER---------------------- */
+.div-logo{
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.div-logo img{
+    width: 2rem;
+    height: 2rem;
+    margin: .5rem 2rem;
+}
+
+.div-logo h1{
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--negro);
+}
+
+
+
+/* ------------------------------------------ */
+
+/* -----------------ESTILOS MAIN------------ */
+main{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+}
+
+main h1{
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: inline-block;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    position: relative;
+    letter-spacing: .3rem;
+    margin: 1.5rem 0 1.5rem;
+}
+
+main h1:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--negro);
+    mix-blend-mode: screen; 
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+main h2{
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: var(--Sant);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--negro);
+}
+
+main .container{
+    width: 100%;
+    height: auto;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr; 
+    column-gap: 2rem ;
+    row-gap: 2rem;
+    
+} 
+
+.container div{
+    display: flex;
+    justify-content: center;
+}
+
+.container div h4{
+    font-family: 'Italianno', cursive;
+    font-size: 3rem;
+    color: var(--negro);
+    text-align:center ;
+}
+
+main .thanks{
+    width: 100%;
+    height: auto;
+    margin: 0 2rem 2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thanks h3{
+    font-size: 9rem;
+    font-family: 'Italianno', cursive;
+    color: var(--negro);
+}

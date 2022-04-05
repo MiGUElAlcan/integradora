@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ThanksController;
 //hacer referencia al espacio de nombres donde se encuentra el controlador TemperaturaController
 use App\Http\Controllers\TemperaturaController;
 //hacer referencia al espacio de nombres donde se encuentra el controlador UsuarioController
@@ -15,7 +16,12 @@ Route::get('/', function () {
     return view('home');
 })->middleware('auth');
 
+<<<<<<< HEAD
 Route::get('/generatepdf', [genpdfController::class, 'genepdf'])->name ('decargarpdf');
+=======
+Route::get('/thanks',[ThanksController::class,'create'])->name('thanks.index');
+
+>>>>>>> bb1362e05089c111f32ae500f3284e0a04fde3c5
 
 Route::get('/register',[RegisterController::class,'create'])->name('register.index')/* ->middleware('auth') */;
 Route::post('/register',[RegisterController::class,'store'])->name('register.store');
@@ -41,3 +47,10 @@ Route::resource('/search',TemperaturaController::class)->middleware('auth');
 
 //ruta de recursos que responda cuando se escriba en la url /usuario
 Route::resource('/usuario',UsuarioController::class)->middleware('auth');
+
+
+//View Thanks
+
+
+
+
