@@ -17,6 +17,10 @@
 
             </a>  --}}
 
+            <a class="div-icon-user" href="{{route('decargarpdf')}}">
+                <img src="" alt="">
+            </a>
+
             <a class="div-icon-user" href="{{route('usuario.index')}}">
                 <img src="icons/list-user.svg" alt="">
             </a>

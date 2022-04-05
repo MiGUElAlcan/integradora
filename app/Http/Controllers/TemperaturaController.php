@@ -27,11 +27,11 @@ class TemperaturaController extends Controller
     public function consultaDia()
     {
         $temperatura = DB::select("SET lc_time_names = 'es_MX'");
-        $temperatura = DB::select("SELECT * 
-        FROM site1.temperatura 
-        WHERE recorder between now() 
+        $temperatura = DB::select("SELECT *
+        FROM site2.temperatura
+        WHERE recorder between now()
         - INTERVAL 24 HOUR AND now()");
-        
+
         $datos = array();
         $datos['name'] = 'Temperatura';
         $datos['data'] = [];
@@ -52,12 +52,12 @@ class TemperaturaController extends Controller
     public function consultaSemana()
     {
 
-        $temperatura = DB::select("SET lc_time_names = 'es_MX'"); 
-        $temperatura = $temperatura = DB::select("SELECT 
+        $temperatura = DB::select("SET lc_time_names = 'es_MX'");
+        $temperatura = $temperatura = DB::select("SELECT
             dayname(recorder) as 'recorder',
             round(avg(value)) as 'value'
-            FROM site1.temperatura 
-            WHERE month(recorder) 
+            FROM site2.temperatura
+            WHERE month(recorder)
             group by day(recorder)");
         $datos2 = array();
         $datos2['name'] = 'Temperatura';
@@ -74,14 +74,14 @@ class TemperaturaController extends Controller
         $datosGraficas2 = array($datos2,$fecha);
         return json_encode($datosGraficas2);
     }
- 
+
     public function consultaMes(Request $request)
     {
         $temperatura = DB::select("SET lc_time_names = 'es_MX'");
-        $temperatura = $temperatura = DB::select("SELECT 
+        $temperatura = $temperatura = DB::select("SELECT
             monthname(recorder) as 'recorder',
             round(value) as 'value'
-            FROM site1.temperatura 
+            FROM site2.temperatura
             WHERE month(recorder) = '05'
             group by month(recorder)");
         $datos3 = array();
@@ -103,10 +103,10 @@ class TemperaturaController extends Controller
     public function consultaYear()
     {
         $temperatura = DB::select("SET lc_time_names = 'es_MX'");
-        $temperatura = $temperatura = DB::select("SELECT 
+        $temperatura = $temperatura = DB::select("SELECT
             monthname(recorder) as 'recorder',
             round(avg(value)) as 'value'
-            FROM site1.temperatura 
+            FROM site2.temperatura
             WHERE year(recorder) = '2021'
             group by month(recorder)");
         $datos4 = array();

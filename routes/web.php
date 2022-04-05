@@ -9,10 +9,13 @@ use App\Http\Controllers\TemperaturaController;
 //hacer referencia al espacio de nombres donde se encuentra el controlador UsuarioController
 use App\Http\Controllers\UsuarioController;
 
+use App\Http\Controllers\genpdfController;
+
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');
 
+Route::get('/generatepdf', [genpdfController::class, 'genepdf'])->name ('decargarpdf');
 
 Route::get('/register',[RegisterController::class,'create'])->name('register.index')/* ->middleware('auth') */;
 Route::post('/register',[RegisterController::class,'store'])->name('register.store');
